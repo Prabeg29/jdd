@@ -1,0 +1,43 @@
+# Secrets and environment
+.env
+.env.*
+!.env.example
+
+# Personal data: lives only in the private S3 bucket, never in git (defensive)
+profile.yml
+profile.yaml
+screening.yaml
+screening.yml
+companies.yaml
+companies.yml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl.bak
+crash.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local data
+data/
+.data/
+*.sqlite
+*.db
+*.dump
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
