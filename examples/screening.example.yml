@@ -1,0 +1,21 @@
+# Synthetic example of s3://<bucket>/inputs/screening.yaml. The real rules exist only in S3;
+# edit them with `make edit-screening`. The engine's golden fixtures (tests/fixtures/titles.yaml)
+# run against this file.
+title:
+  allow: [software engineer, backend engineer, platform engineer]
+  avoid: [machine learning, manager, intern]
+  abbreviations: {sr: senior, jr: junior, swe: software engineer, eng: engineer}
+location:
+  accept:
+    - {country: XX, city: Example City}
+    - {country: XX, region: Example Region}
+  accept_remote: [XX]
+  unknown: keep            # keep | fail
+work_rights:               # decided by the judge from the posting text
+  candidate: {status: example-status, needs_sponsorship: false}
+salary: {currency: XXX, min_annual: 100000, unknown: keep}
+experience: {candidate_years: 4, tolerance: 2}   # decided by the judge
+blocked_companies: [Blocked Example Co]
+checks:                    # run by `make edit-screening` before every upload
+  pass: [Senior Software Engineer, SWE II]
+  fail: [Machine Learning Engineer]
